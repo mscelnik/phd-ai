@@ -1,0 +1,12 @@
+# Example input schema for simulation
+reactions:
+  # List of reaction equations or reference to file
+  - C2H2 + O2 -> CO2 + H2O
+particles:
+  # Parameters for population balance model
+  initial_count: 1000
+  growth_rate: 0.01
+  coagulation_rate: 0.005
+simulation:
+  time_steps: 100
+  dt: 0.01
