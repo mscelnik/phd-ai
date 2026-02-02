@@ -1,0 +1,6 @@
+Source: https://en.wikipedia.org/wiki/Acetylene
+
+Excerpt (cached on project creation):
+Acetylene (ethyne) is C2H2 and is a common soot precursor; partial combustion
+of hydrocarbons produces acetylene which can act as a growth precursor for
+PAHs and soot. (Wikipedia)

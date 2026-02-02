@@ -1,0 +1,5 @@
+Source: https://en.wikipedia.org/wiki/Soot
+
+Excerpt (cached on project creation):
+Soot forms from precursors (e.g. acetylene). Key subprocesses: nucleation,
+surface growth, coagulation, and oxidation. (Wikipedia)

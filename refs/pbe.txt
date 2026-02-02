@@ -1,0 +1,5 @@
+Source: https://en.wikipedia.org/wiki/Population_balance_equation
+
+Excerpt (cached on project creation):
+Population Balance Equations describe particle population evolution; Monte
+Carlo methods and discretization approaches are commonly used to solve PBEs.

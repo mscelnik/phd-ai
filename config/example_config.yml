@@ -1,0 +1,12 @@
+t0: 0.0
+tf: 1.0
+steps: 10
+C0: 1.0
+k: 1.0
+k_nuc: 0.01
+n_seed: 5
+seed_size: 1.0
+coag_steps: 5
+bins: 8
+out_dir: outputs/example_run
+max_iters: 1000
