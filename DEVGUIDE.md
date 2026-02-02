@@ -66,6 +66,14 @@ Before declaring a change complete, run and pass full end-to-end tests (includin
 	- `make test` or `pytest tests/ -q`
 	- `pytest tests/specific_test.py::test_name -q`
 
+
+### Infinite loop failsafes and test time limits
+- Agents and contributors must ensure that any code using potentially unbounded loops (e.g. `while` loops) includes failsafes to prevent infinite execution. This can be done by:
+	- Adding a maximum iteration count or timeout in the code itself, or
+	- Adding a timeout or iteration limit in the corresponding test.
+- No individual test should take longer than 10 seconds to run. If a test may run longer, refactor the code or test to include a failsafe and reduce runtime.
+- Automated checks should flag any test exceeding this limit for review.
+
 All changes must include passing unit tests and full end-to-end tests (including UI where relevant) before an agent (or human) declares the change complete.
 
 ## Non-breaking verification
