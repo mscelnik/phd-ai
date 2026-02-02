@@ -26,6 +26,13 @@ venv/
 ENV/
 env/
 
+# Ignore Python virtual environment
+.venv/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
 # IDE
 .idea/
 .vscode/

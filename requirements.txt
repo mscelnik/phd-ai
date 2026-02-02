@@ -1,0 +1,8 @@
+# Python dependencies
+scipy
+numpy
+pandas
+matplotlib
+pytest
+pyyaml
+openpyxl
