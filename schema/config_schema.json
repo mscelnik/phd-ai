@@ -1,0 +1,165 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Nanoparticle Simulator Configuration",
+  "description": "Schema for simulation configuration files",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Simulation name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Simulation description"
+    },
+    "gas": {
+      "type": "object",
+      "properties": {
+        "mechanism": {
+          "type": "string",
+          "description": "Mechanism file path or built-in name"
+        },
+        "temperature": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Initial temperature in K"
+        },
+        "pressure": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Pressure in Pa"
+        },
+        "composition": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "description": "Initial mole fractions"
+        }
+      },
+      "required": ["mechanism", "temperature", "pressure", "composition"]
+    },
+    "particles": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Enable particle solver"
+        },
+        "max_particles": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Maximum particles in ensemble"
+        },
+        "min_particles": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Minimum particles before doubling"
+        },
+        "nucleation_enabled": {
+          "type": "boolean"
+        },
+        "growth_enabled": {
+          "type": "boolean"
+        },
+        "coagulation_enabled": {
+          "type": "boolean"
+        },
+        "oxidation_enabled": {
+          "type": "boolean"
+        },
+        "precursor_species": {
+          "type": "string"
+        }
+      }
+    },
+    "reactor": {
+      "type": "object",
+      "properties": {
+        "reactor_type": {
+          "type": "string",
+          "enum": ["batch", "plug_flow"],
+          "description": "Reactor type"
+        },
+        "volume": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Reactor volume in m³"
+        },
+        "constant_pressure": {
+          "type": "boolean"
+        },
+        "energy_enabled": {
+          "type": "boolean"
+        },
+        "splitting_type": {
+          "type": "string",
+          "enum": ["lie", "strang", "predictor"]
+        }
+      }
+    },
+    "solver": {
+      "type": "object",
+      "properties": {
+        "duration": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Simulation duration in s"
+        },
+        "time_step": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Integration time step in s"
+        },
+        "output_interval": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Output interval in s"
+        },
+        "integrator": {
+          "type": "string",
+          "enum": ["bdf", "radau", "lsoda", "rk45"]
+        },
+        "rtol": {
+          "type": "number",
+          "minimum": 0
+        },
+        "atol": {
+          "type": "number",
+          "minimum": 0
+        },
+        "random_seed": {
+          "type": ["integer", "null"]
+        }
+      },
+      "required": ["duration", "time_step"]
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "directory": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string",
+          "enum": ["csv", "excel", "both"]
+        },
+        "save_states": {
+          "type": "boolean"
+        },
+        "species_filter": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": ["gas", "solver"]
+}

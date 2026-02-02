@@ -1,0 +1,67 @@
+# Example Configuration for Nanoparticle Simulator
+# ================================================
+#
+# This file demonstrates the configuration format for running
+# soot/nanoparticle formation simulations.
+
+name: "Methane Flame Soot Formation"
+description: |
+  Simulation of soot particle formation in a premixed methane/air flame.
+  Uses GRI-Mech 3.0 for gas-phase chemistry and a stochastic population
+  balance model for particle dynamics.
+
+# Gas-phase chemistry configuration
+gas:
+  mechanism: "gri30.yaml"  # Built-in Cantera mechanism
+  temperature: 1800.0      # Initial temperature (K)
+  pressure: 101325.0       # Pressure (Pa) - 1 atm
+  composition:             # Initial mole fractions
+    CH4: 0.055             # Methane (φ=1.0 equivalence ratio)
+    O2: 0.11
+    N2: 0.835
+
+# Particle solver configuration
+particles:
+  enabled: true
+  max_particles: 4096      # Maximum particles in ensemble
+  min_particles: 512       # Minimum before doubling
+  nucleation_enabled: true
+  growth_enabled: true
+  coagulation_enabled: true
+  oxidation_enabled: true
+  precursor_species: "A4"  # Pyrene (C16H10)
+
+# Reactor configuration
+reactor:
+  reactor_type: "batch"
+  volume: 1.0e-6           # 1 cm³
+  constant_pressure: true  # Constant pressure reactor
+  energy_enabled: true     # Solve energy equation
+  splitting_type: "strang" # Strang operator splitting
+
+# Solver configuration
+solver:
+  duration: 0.005          # 5 ms simulation
+  time_step: 1.0e-6        # 1 μs integration step
+  output_interval: 1.0e-4  # 100 μs output interval
+  integrator: "bdf"        # Backward differentiation formula
+  rtol: 1.0e-6             # Relative tolerance
+  atol: 1.0e-12            # Absolute tolerance
+  random_seed: 42          # For reproducibility
+
+# Output configuration
+output:
+  directory: "output"
+  prefix: "soot_simulation"
+  format: "csv"            # "csv", "excel", or "both"
+  save_states: false
+  species_filter:          # Optional: only output these species
+    - CH4
+    - O2
+    - CO
+    - CO2
+    - H2O
+    - OH
+    - H
+    - C2H2
+    - C2H4
