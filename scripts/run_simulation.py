@@ -5,11 +5,11 @@ from src.simulation import SimulationConfig, OperatorSplittingSimulator
 def main(config_path):
     config = SimulationConfig(config_path).config
     sim = OperatorSplittingSimulator(config)
-    # Placeholder: initial conditions and particles
-    initial_conditions = {}
-    initial_particles = {}
-    sim.run(initial_conditions, initial_particles)
-    print("Simulation complete.")
+    # Example initial conditions
+    initial_conditions = {"chemistry": [1.0]}  # initial concentration
+    initial_particles = {"count": config["particles"]["initial_count"]}
+    chem_t, chem_y, particle_history = sim.run(initial_conditions, initial_particles)
+    print("Simulation complete. Results saved to data/.")
 
 
 if __name__ == "__main__":
