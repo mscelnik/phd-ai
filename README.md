@@ -20,5 +20,5 @@ That's it.  I'll execute the same prompt with different agents and save the resu
 | GPT-4.1 | 1 | gpt-41-r1 | TBC |
 | GPT-4o | 1 | gpt-4o-r1 | TBC |
 | GPT-5 mini | 1 | gpt-5mini-r1 | TBC |
-| Claude Haiku 4.5 | 0 | claude-haiku-45-r0 | TBC |
-| Claude Opus 4.5 | 0 | claude-opus-45-r1 | TBC |
+| Claude Haiku 4.5 | 0 | claude-haiku-4.5-r0 | TBC |
+| Claude Opus 4.5 | 1 | claude-opus-4.5-r1 | TBC |
