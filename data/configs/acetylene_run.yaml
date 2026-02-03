@@ -1,0 +1,16 @@
+name: acetylene_soot
+output_folder: outputs
+initial_species:
+  C2H2: 1.7
+  O2: 2.3
+  CO: 0.0
+  H2: 0.0
+time_end: 0.5
+time_steps: 201
+population:
+  dt: 0.005
+  initial_particles: 6
+  nucleation_coefficient: 0.75
+  growth_coefficient: 1e-4
+  coagulation_probability: 0.2
+  oxidation_fraction: 0.01

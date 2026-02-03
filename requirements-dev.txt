@@ -1,0 +1,7 @@
+-r requirements.txt
+pytest>=8.3
+black>=24.8
+ruff>=0.0.298
+isort>=6.0
+sphinx>=7.0
+pre-commit>=3.4

@@ -49,9 +49,15 @@ htmlcov/
 *.ipynb
 
 # Output files (simulations should not be committed)
+outputs/
 output/
 *.csv
 *.xlsx
+# keep curated data in the repo
+!data/*.csv
+!data/configs/*.csv
+!refs/*.csv
+!docs/*.csv
 !examples/*.csv
 
 # Data files (large mechanism files)
